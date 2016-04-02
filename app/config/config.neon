@@ -1,0 +1,18 @@
+common:
+	php:
+		date.timezone: Europe/Prague
+
+	nette:
+		container:
+			accessors: TRUE
+
+production < common:
+	services:
+		nette.latteFactory:
+			setup:
+				- setTempDirectory(null)
+
+development < common:
+	services:
+		cacheStorage:
+			class: Nette\Caching\Storages\DevNullStorage

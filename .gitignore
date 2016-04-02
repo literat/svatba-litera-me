@@ -1,0 +1,6 @@
+app/bin/*
+app/temp/*
+
+*.sublime-*
+
+.phpintel/
