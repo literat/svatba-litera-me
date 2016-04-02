@@ -55,7 +55,7 @@
 	<script src="{$basePath}/js/creative.js"></script>
 
 	<!-- Google Maps -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBFR6GGX-I1EX-77HgCQVL4CGEVG70hkY&amp;sensor=false"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSYFcsYkNuoocPMRgnEWV3jTiWnJ1edjk"></script>
 	<script type="text/javascript">
 		// When the window has finished loading create our google map below
 		google.maps.event.addDomListener(window, 'load', init);
@@ -65,10 +65,10 @@
 			// For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
 			var mapOptions = {
 				// How zoomed in you want the map to start at (always required)
-				zoom: 11,
+				zoom: 15,
 
 				// The latitude and longitude to center the map (always required)
-				center: new google.maps.LatLng(50.075699, 14.435347), // Prague
+				center: new google.maps.LatLng(49.269021, 15.703360), // Chaloupky o.p.s
 
 				// How you would like to style the map.
 				// This is where you would paste any style found on Snazzy Maps.
@@ -78,11 +78,17 @@
 					stylers:[
 						{ invert_lightness:true },
 						{ saturation:10 },
-						{ lightness:30 },
+						{ lightness:40 },
 						{ gamma:0.5 },
-						{ hue:"#44BCDD" }
+						{ hue:"#752137" }
 					]
-				}]
+				}],
+
+				scrollwheel: false,
+				navigationControl: true,
+				mapTypeControl: true,
+				scaleControl: true,
+				draggable: true,
 			};
 
 			// Get the HTML DOM element that will contain your map
