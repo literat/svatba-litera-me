@@ -478,3 +478,24 @@ body {
 .header-content .img-responsive {
     margin: 0 auto;
 }
+
+/* google map */
+#map {
+    height: 500px;
+}
+
+#maps {
+    padding-top: 0px;
+}
+
+#where .service-box a {
+    color: #fff;
+}
+
+.very-big {
+    font-size: 62px;
+}
+
+.almost-big {
+    font-size: 32px;
+}
