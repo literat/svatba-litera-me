@@ -703,7 +703,7 @@ a.scrollup:hover{
 .social-network a.icoGithub:hover {
     background-color:#111111;
 }
-.social-network a.icoFacebook:hover em, .social-network a.icoTwitter:hover em, 
+.social-network a.icoFacebook:hover em, .social-network a.icoTwitter:hover em,
 .social-network a.icoGoogle:hover em, .social-network a.icoLinkedin:hover em {
     color:#fff;
 }
