@@ -488,6 +488,10 @@ body {
     padding-top: 0px;
 }
 
+#who img {
+    margin: auto;
+}
+
 #where .service-box a {
     color: #fff;
 }
