@@ -6,6 +6,10 @@ common:
 		container:
 			accessors: TRUE
 
+	services:
+		mailer:
+			class: Nette\Mail\SendmailMailer
+
 production < common:
 	services:
 		nette.latteFactory:
