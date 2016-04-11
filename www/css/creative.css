@@ -743,3 +743,37 @@ a.scrollup:hover{
 .align-center {
     text-align: center;
 }
+
+.dress-code-text {
+    margin-top: 50px;
+}
+
+table>tbody>tr.dress-code-color>td {
+    padding: 30px;
+}
+
+.dress-code-color .blue,
+.dress-code-color .red,
+.dress-code-color .no-name,
+.dress-code-color .grey {
+    border-radius: 50px;
+    padding: 20px;
+    padding-right: 27px;
+    padding-left: 27px;
+}
+
+.dress-code-color .blue {
+    background-color: #172849;
+}
+
+.dress-code-color .red {
+    background-color: #752137;
+}
+
+.dress-code-color .no-name {
+    background-color: #fee0cc;
+}
+
+.dress-code-color .grey {
+    background-color: #c4c4c3;
+}
