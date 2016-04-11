@@ -451,36 +451,32 @@
 		<div class="row">
 			<div class="col-md-8 col-lg-offset-2">
 				<div class="cform" id="contact-form">
+					{$form->render('begin')}
 					<div id="sendmessage">
-						 Vaše zpráva byla odeslána! Děkuji.
+						 {$form->render('errors') }
+						 {$flashMessage}
 					</div>
-					<form action="{$basePath}/contact/contact.php" method="post" role="form" class="contactForm">
 						<div class="form-group">
-							<label for="name">Vaše jméno</label>
-							<input type="text" name="name" class="form-control" id="name" placeholder="Vaše jméno" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
-							<div class="validation"></div>
+							{$form['name']->label}
+							{$form['name']->control}
 						</div>
 						<div class="form-group">
-							<label for="email">Váš E-mail</label>
-							<input type="email" class="form-control" name="email" id="email" placeholder="Váš E-mail" data-rule="email" data-msg="Please enter a valid email" />
-							<div class="validation"></div>
+							{$form['email']->label}
+							{$form['email']->control}
 						</div>
 						<div class="form-group">
-							<label for="subject">Předmět</label>
-							<input type="text" class="form-control" name="subject" id="subject" placeholder="Předmět" data-rule="maxlen:4" data-msg="Please enter at least 8 chars of subject" />
-							<div class="validation"></div>
+							{$form['subject']->label}
+							{$form['subject']->control}
 						</div>
 						<div class="form-group">
-							<label for="message">Zpráva</label>
-							<textarea class="form-control" name="message" id="message" rows="5" data-rule="required" data-msg="Prosím, něco hezkého mi napište..."></textarea>
-							<div class="validation"></div>
+							{$form['message']->label}
+							{$form['message']->control}
 						</div>
 						<div class="call-to-action">
-							<a href="#" class="btn btn-default btn-xl wow tada">ODESLAT ZPRÁVU</a>
+							{$form['send']->control}
 						</div>
 						<div class="container text-center">
-					</form>
-
+					{$form->render('end')}
 				</div>
 			</div>
 		<!-- ./span12 -->
