@@ -18,26 +18,63 @@ $configurator->setTempDirectory(__DIR__ . '/../app/temp');
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/../app/config/config.neon', $configurator::AUTO);
 $container = $configurator->createContainer();
+$mailer = $container->getService('mailer');
 
 // Setup routes
-// http://kegege.net/[cs|en]
 $router = $container->getService('router');
-$router[] = new Route('', function($presenter) {
+$router[] = new Route('', function($presenter) use ($mailer) {
+
+	// create contact form
+	$form = new Form;
+	$form->addText('name', 'Vaše jméno')
+		->addRule(Form::FILLED, 'Zadejte vaše jméno')
+		->setAttribute('class', 'form-control')
+		->setAttribute('placeholder', 'Vaše jméno');
+	$form->addText('email', 'Váš E-mail')
+		->addRule(Form::FILLED, 'Zadejte váš e-mail')
+		->addRule(Form::EMAIL, 'Zadejte platnou e-mailovou adresu')
+		->setAttribute('class', 'form-control')
+		->setAttribute('placeholder', 'Váš E-mail');
+	$form->addText('subject', 'Předmět')
+		->addRule(Form::FILLED, 'Zadejte předmět zprávy')
+		->setAttribute('class', 'form-control')
+		->setAttribute('placeholder', 'Předmět');
+	$form->addTextArea('message', 'Zpráva')
+		->addRule(Form::FILLED, 'Zadejte zprávu')
+		->setAttribute('class', 'form-control')
+		->setAttribute('placeholder', 'Prosím, něco hezkého mi napište...')
+		->setAttribute('row', 10);
+	$form->addSubmit('send', 'ODESLAT ZPRÁVU')
+		->setAttribute('class', 'btn btn-default btn-xl wow tada');
 
 	// create template
 	$template = $presenter->createTemplate()->setFile(__DIR__ . '/../app/templates/main.latte');
+	if(!isset($template->flashMessage)) {
+		$template->flashMessage = '';
+	}
+	// assign form
+	$template->form = $form;
 
-	// register template helpers like {$foo|date}
-	// $template->registerHelper('date', function($date) use ($lang) {
-	// 	if ($lang === 'en') {
-	// 		return date('F j, Y', (int) $date);
-	// 	} else {
-	// 		static $months = array(1 => 'leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec');
-	// 		$date = getdate((int) $date);
+	// form on success
+	if ($form->isSuccess()) {
+		$values = $form->getValues();
 
-	// 		return "$date[mday]. {$months[$date['mon']]} $date[year]";
-	// 	}
-	// });
+		$message = new Message;
+		$message->addTo('tomas@litera.me')
+			->setFrom($values['email'], $values['name'])
+			->setSubject($values['subject'])
+			->setBody($values['message']);
+
+		$mailTemplate = $presenter->createTemplate()->setFile(__DIR__ . '/../app/templates/email.latte');
+		$mailTemplate->title = 'Zpráva ze svatebního formuláře';
+		$mailTemplate->values = $values;
+
+		$message->setHtmlBody($mailTemplate);
+		$mailer->send($message);
+
+		$template->flashMessage = 'Vaše zpráva byla odeslána! Děkuji.';
+		$presenter->redirectUrl($presenter->context->httpRequest->url->baseUrl . '#contact-form');
+	}
 
 	return $template;
 });
