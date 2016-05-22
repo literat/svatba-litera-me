@@ -777,3 +777,30 @@ table>tbody>tr.dress-code-color>td {
 .dress-code-color .grey {
     background-color: #c4c4c3;
 }
+
+ul.gifts {
+    list-style: none;
+    text-align: left;
+}
+
+ul.gifts h4 {
+    display: inline-block;
+    margin: 25px 25px 25px 0px;
+    width: 75%;
+}
+
+.gifts li.reserved h4 span  {
+    color: white;
+}
+
+.gifts li.reserved h4 {
+    text-decoration: line-through;
+    color: red;
+}
+
+#sendmessage {
+    font-size: 20px;
+    color: red;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
