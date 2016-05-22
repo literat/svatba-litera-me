@@ -1,0 +1,98 @@
+<section id="gifts">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 text-center">
+				<h2 class="section-heading">Svatební dary</h2>
+				<hr class="primary">
+				<p><strong>Jak už jsme zmínili dříve nejvíc nás potěší, když přijedete na svatbu a budete se bavit. Protože každá legrace něco stojí, z darů oceníme zejména finanční dary nebo něco z položek uvedených níže. Pokud ne rádi dáváte peníze jen tak v nudné obálce, věnujte nám nějakou knížku s osobním věnováním.</strong></p>
+				<p>Opravdu vás prosíme nedávejte nám žádné jiné dary, máme plně vybavený velmi malý byt. Zvláštní zákaz platí zvířata, kuchyňské vybavení, umělecké předměty a další lapače prachu.</p>
+				<hr class="primary">
+				<p>Během soboty bude k dispozici guláš, po obřadu přibude na stůl těstovinový salát (bez masa) a halušky. (změna programu je však vyhrazena). Co by byla letní svatba bez grilování, proto bude k dispozici gril. Naložené maso na něj by tedy nemělo chybět. Pokud vyznáváte grilování něčeho jiného, klidně nám můžete rozšířit obzory.</p>
+				<div class="row bg-dark">
+					<ul class="gifts">
+						{foreach $gifts->meat as $meat}
+						<li id="meat-{$iterator->getCounter()}" class="call-to-action {$meat->reserved ? 'reserved' : ''}">
+							<h4><span>{$meat->item}</span></h4>
+							{if !$meat->reserved}
+							<a href="#contact-form-section" class="bring btn btn-default btn-xl wow tada">Přivezu!</a>
+							{/if}
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+				<hr class="primary">
+				<p>Budeme rádi, když nám to osladíte. Fantazii se meze nekladou - buchty, koláče, muffiny, cupcake, záviny, zákusky atd. Cokoliv čím se rádi pochlubíte.</p>
+				<div class="row bg-dark">
+					<ul class="gifts">
+						{foreach $gifts->bakings as $baking}
+						<li id="bakings-{$iterator->getCounter()}" class="call-to-action {$baking->reserved ? 'reserved' : ''}">
+							<h4><span>{$baking->item}</span></h4>
+							{if !$baking->reserved}
+							<a href="#contact-form-section" class="bring btn btn-default btn-xl wow tada">Přivezu!</a>
+							{/if}
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+				<hr class="primary">
+				<p>Na svatbě bude pivo, limo i víno, ale budeme rádi za nealko alternativu bez bublinek. Když přibalíte do svého baťůžku jednu láhev domácí šťávy, určitě se neztratí.</p>
+				<div class="row bg-dark">
+					<ul class="gifts">
+						{foreach $gifts->juice as $juice}
+						<li id="juice-{$iterator->getCounter()}" class="call-to-action {$juice->reserved ? 'reserved' : ''}">
+							<h4><span>{$juice->item}</span></h4>
+							{if !$juice->reserved}
+							<a href="#contact-form-section" class="bring btn btn-default btn-xl wow tada">Přivezu!</a>
+							{/if}
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+				<hr class="primary">
+				<p>Studené občerstvení a další pochutiny určitě přijdou k chuti. Seznam je spíše orientační a vlastní iniciativě se meze nekladou.</p>
+				<div class="row bg-dark">
+					<ul class="gifts">
+						{foreach $gifts->sweet as $sweet}
+						<li id="sweet-{$iterator->getCounter()}" class="call-to-action {$sweet->reserved ? 'reserved' : ''}">
+							<h4><span>{$sweet->item}</span></h4>
+							{if !$sweet->reserved}
+							<a href="#contact-form-section" class="bring btn btn-default btn-xl wow tada">Přivezu!</a>
+							{/if}
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+				<hr class="primary">
+				<p>Ne každý má čas vyvařovat a nakupovat před víkendem a tak jako svatbení dar můžete přiložit ruku k dílu (suroviny nakoupíme sami).</p>
+				<hr class="primary">
+				<p>Páteční úkoly (ještě nějaké budou příbývat):</p>
+				<div class="row bg-dark">
+					<ul class="gifts">
+						{foreach $gifts->jobsfri as $job}
+						<li id="jobsfri-{$iterator->getCounter()}" class="call-to-action {$job->reserved ? 'reserved' : ''}">
+							<h4><span>{$job->item} - {$job->count} X</span></h4>
+							{if !$job->reserved}
+							<a href="#contact-form-section" class="bring btn btn-default btn-xl wow tada">Provedu!</a>
+							{/if}
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+				<hr class="primary">
+				<p>Sobotní úkoly (ještě nějaké budou příbývat):</p>
+				<div class="row bg-dark">
+					<ul class="gifts">
+						{foreach $gifts->jobssat as $job}
+						<li id="jobssat-{$iterator->getCounter()}" class="call-to-action {$job->reserved ? 'reserved' : ''}">
+							<h4><span>{$job->item} - {$job->count} X</span></h4>
+							{if !$job->reserved}
+							<a href="#contact-form-section" class="bring btn btn-default btn-xl wow tada">Provedu!</a>
+							{/if}
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

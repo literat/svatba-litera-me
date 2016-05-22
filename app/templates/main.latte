@@ -324,7 +324,7 @@
 	</div>
 </section>
 
-<!-- program -->
+<!-- gifts disclaimer -->
 <aside class="bg-dark">
 	<div class="container text-center">
 		<div class="call-to-action">
@@ -335,19 +335,9 @@
 </aside>
 
 <!-- gifts -->
-<section id="gifts">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 text-center">
-				<h2 class="section-heading">Svatební dary</h2>
-				<hr class="primary">
-				<p>Naším hlavním cílem je svatbu si užít a sejít se se všemi kamarády, proto razíme heslo &bdquo;Nevozte dary, dovezte jídlo nebo peníze.&rdquo;<br />Během dubna se na webu objeví trochu netradiční seznam svatebních darů v podobě nejrůznějších gastronomických položek. Můžete si zde dar vybrat a zarezervovat, můžete si i zvolit, zda danou věc dovezete nebo ji koupíte na dálku a my ji zajistíme.<br />Především nám ale uděláte největší radost, když přijedete. Snažně vás prosíme, nevozte nám jiné dary, pokud ale opravdu neradi dáváte pouze peníze, skočte do antikvariátu a věnujte nám nějakou zajímavou knihu s osobním věnováním.</p>
-			</div>
-		</div>
-	</div>
-</section>
+{include 'gifts.latte'}
 
-<!-- gifts -->
+<!-- photogallery disclaimer -->
 <aside class="bg-dark">
 	<div class="container text-center">
 		<div class="call-to-action">
@@ -680,7 +670,7 @@
 	</div>
 </section>
 
-<section id="contact-form" class="bg-dark">
+<section id="contact-form-section" class="bg-dark">
 	<div class="container">
  		<div class="row mar-bot40">
 			<div class="col-md-offset-3 col-md-6 text-center">
@@ -721,6 +711,7 @@
 						<div class="container text-center">
 					{$form->render('end')}
 				</div>
+				{$resetForm|noescape}
 			</div>
 		<!-- ./span12 -->
 		</div>
